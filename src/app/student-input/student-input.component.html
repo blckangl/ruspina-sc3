@@ -1,0 +1,25 @@
+<section class="container">
+  <div class="inputs">
+    <div class="input">
+      <label for="studentname">First name:</label>
+      <input #nameInput id="studentname" name="studentname"  type="text">
+    </div>
+    <div class="input">
+      <label for="studentlastname">Last name:</label>
+
+      <input #lastInput id="studentlastname" name="studentlastname"  type="text">
+    </div>
+    <div class="input">
+      <label for="studentid">Student Id:</label>
+
+      <input #idInput id="studentid" name="studentid"  type="text">
+    </div>
+
+  </div>
+
+  <div class="actions">
+    <div class="action">
+      <input (click)="addStudent(nameInput,lastInput,idInput)" type="submit" value="Add"/>
+    </div>
+  </div>
+</section>
