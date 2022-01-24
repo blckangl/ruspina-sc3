@@ -7,6 +7,7 @@ import { StudentListComponent } from './student-list/student-list.component';
 import { StudentInputComponent } from './student-input/student-input.component';
 import { StudentElementComponent } from './student-element/student-element.component';
 import { CustomButtonDirective } from './custom-button.directive';
+import { CapitalTextDirective } from './capital-text.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CustomButtonDirective } from './custom-button.directive';
     StudentListComponent,
     StudentInputComponent,
     StudentElementComponent,
-    CustomButtonDirective
+    CustomButtonDirective,
+    CapitalTextDirective
   ],
   imports: [
     BrowserModule,

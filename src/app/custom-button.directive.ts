@@ -1,4 +1,4 @@
-import {Directive, ElementRef, HostBinding, HostListener, Input, OnInit} from '@angular/core';
+import {Directive, ElementRef, HostBinding, HostListener, Input, OnInit, Renderer2} from '@angular/core';
 
 @Directive({
   selector: '[appCustomButton]'
@@ -31,6 +31,7 @@ export class CustomButtonDirective implements OnInit {
     this.el.nativeElement.style.border = `1px solid ${this.customBgColor}`
     this.color = this.customBgColor;
     this.bgColor = this.defaultBgColor;
+
   }
 
 }
