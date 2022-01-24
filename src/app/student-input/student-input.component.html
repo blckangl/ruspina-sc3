@@ -12,14 +12,15 @@
     <div class="input">
       <label for="studentid">Student Id:</label>
 
-      <input #idInput id="studentid" name="studentid"  type="text">
+      <input  #idInput id="studentid" name="studentid"  type="text">
     </div>
 
   </div>
 
   <div class="actions">
     <div class="action">
-      <input (click)="addStudent(nameInput,lastInput,idInput)" type="submit" value="Add"/>
+      <input appCustomButton [customBgColor]="'#7b1fa2'" (click)="addStudent(nameInput,lastInput,idInput)" type="submit" value="Add"/>
+      <input appCustomButton type="submit" value="Reset"/>
     </div>
   </div>
 </section>
