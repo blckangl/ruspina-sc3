@@ -10,6 +10,7 @@ import { CustomButtonDirective } from './custom-button.directive';
 import { CapitalTextDirective } from './capital-text.directive';
 import { StudentsPageComponent } from './students-page/students-page.component';
 import { DetailsPageComponent } from './details-page/details-page.component';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DetailsPageComponent } from './details-page/details-page.component';
     CustomButtonDirective,
     CapitalTextDirective,
     StudentsPageComponent,
-    DetailsPageComponent
+    DetailsPageComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,

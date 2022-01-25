@@ -3,7 +3,9 @@
     <p appCapitalText>{{student.firstName}} {{student.lastName}}</p>
   </div>
   <div class="actions">
-    <button class="action">View</button>
+    <button (click)="goToDetails()" class="action">View</button>
+    <a [routerLink]="['detail',student.id]"   class="action">View</a>
     <button (click)="deleteStudent()" class="action danger">Remove</button>
   </div>
 </section>
+
