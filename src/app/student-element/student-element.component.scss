@@ -5,4 +5,25 @@
   background-color: #1976d2;
   color: white;
   border-radius: 6px;
+  justify-content: space-between;
+  margin-top: 4px;
+  .actions{
+    .action{
+      margin-right: 2px;
+      padding: 8px;
+      background-color: #7b1fa2;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.2s ease-in;
+    }
+    &
+    .danger{
+      background-color: #d32f2f;
+    }
+    :hover{
+      transform: scale(1.1);
+    }
+  }
 }
