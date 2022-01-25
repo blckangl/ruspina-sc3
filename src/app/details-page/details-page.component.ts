@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
+import {IStudent} from "../shared/models/student.interface";
+import {StudentsService} from "../students.service";
 
 @Component({
   selector: 'app-details-page',
@@ -8,13 +10,19 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class DetailsPageComponent implements OnInit {
 
-  id!:string;
-  constructor(private route:ActivatedRoute) { }
+  student!: IStudent | undefined;
+
+  constructor(private route: ActivatedRoute,private router:Router, private studentService: StudentsService) {
+
+  }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params=>{
+    this.route.params.subscribe(params => {
       console.log(params)
-      this.id = params['id']
+      this.student = this.studentService.getStudentById(params['id']);
+      if(!this.student){
+         this.router.navigate(['404'])
+      }
     })
   }
 

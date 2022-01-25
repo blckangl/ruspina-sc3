@@ -9,7 +9,9 @@ const routes: Routes = [
   {path:'',component:StudentsPageComponent},
   {path:'home',redirectTo:''},
   {path:'detail/:id',component:DetailsPageComponent},
-  {path:'**',component:NotFoundPageComponent}
+  {path:'404',component:NotFoundPageComponent},
+  {path:'**',redirectTo:'404'},
+
 ];
 
 @NgModule({

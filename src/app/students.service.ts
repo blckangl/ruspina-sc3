@@ -20,4 +20,8 @@ export class StudentsService {
   public setNewList(list: Array<IStudent>) {
     this.studentList = list;
   }
+
+  public getStudentById(id:string){
+    return this.studentList.find(x=>x.id==id);
+  }
 }
