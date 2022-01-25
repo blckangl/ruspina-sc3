@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IStudent} from "../shared/models/student.interface";
 
 @Component({
@@ -8,6 +8,7 @@ import {IStudent} from "../shared/models/student.interface";
 })
 export class StudentElementComponent implements OnInit {
   @Input() student!: IStudent;
+  @Output() onStudentRemove: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {
   }
@@ -15,4 +16,7 @@ export class StudentElementComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  deleteStudent() {
+     this.onStudentRemove.emit(this.student.id)
+  }
 }

@@ -20,7 +20,7 @@
   <div class="actions">
     <div class="action">
       <input appCustomButton [customBgColor]="'#7b1fa2'" (click)="addStudent(nameInput,lastInput,idInput)" type="submit" value="Add"/>
-      <input appCustomButton type="submit" value="Reset"/>
+      <input appCustomButton (click)="resetInputs(nameInput,lastInput,idInput)" type="submit" value="Reset"/>
     </div>
   </div>
 </section>

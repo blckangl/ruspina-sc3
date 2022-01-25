@@ -8,6 +8,8 @@ import { StudentInputComponent } from './student-input/student-input.component';
 import { StudentElementComponent } from './student-element/student-element.component';
 import { CustomButtonDirective } from './custom-button.directive';
 import { CapitalTextDirective } from './capital-text.directive';
+import { StudentsPageComponent } from './students-page/students-page.component';
+import { DetailsPageComponent } from './details-page/details-page.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { CapitalTextDirective } from './capital-text.directive';
     StudentInputComponent,
     StudentElementComponent,
     CustomButtonDirective,
-    CapitalTextDirective
+    CapitalTextDirective,
+    StudentsPageComponent,
+    DetailsPageComponent
   ],
   imports: [
     BrowserModule,

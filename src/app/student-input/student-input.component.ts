@@ -28,4 +28,10 @@ export class StudentInputComponent implements OnInit {
     }
 
   }
+
+  resetInputs(nameInput: HTMLInputElement, lastInput: HTMLInputElement, idInput: HTMLInputElement) {
+    nameInput.value='';
+    lastInput.value='';
+    idInput.value='';
+  }
 }

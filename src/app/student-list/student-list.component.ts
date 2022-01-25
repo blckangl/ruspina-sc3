@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IStudent} from "../shared/models/student.interface";
 
 @Component({
@@ -8,11 +8,19 @@ import {IStudent} from "../shared/models/student.interface";
 })
 export class StudentListComponent implements OnInit {
   @Input() students!: Array<IStudent>;
+  @Output() onStudentsChanged: EventEmitter<Array<IStudent>> = new EventEmitter<Array<IStudent>>();
 
   constructor() {
   }
 
   ngOnInit(): void {
+  }
+
+  deleteStudent(id: string) {
+    let newStudentsList = this.students.filter(x=>x.id!=id);
+
+    this.onStudentsChanged.emit(newStudentsList);
+    console.log("new list", newStudentsList)
   }
 
 }
