@@ -11,6 +11,7 @@ import { CapitalTextDirective } from './capital-text.directive';
 import { StudentsPageComponent } from './students-page/students-page.component';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import {StudentsService} from "./students.service";
 
 @NgModule({
   declarations: [

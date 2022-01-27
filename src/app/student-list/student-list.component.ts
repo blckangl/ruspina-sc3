@@ -16,11 +16,6 @@ export class StudentListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deleteStudent(id: string) {
-    let newStudentsList = this.students.filter(x=>x.id!=id);
 
-    this.onStudentsChanged.emit(newStudentsList);
-    console.log("new list", newStudentsList)
-  }
 
 }

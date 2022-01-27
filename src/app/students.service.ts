@@ -1,27 +1,41 @@
 import {Injectable} from '@angular/core';
 import {IStudent} from "./shared/models/student.interface";
+import {BehaviorSubject, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentsService {
-  public studentList: Array<IStudent> = new Array<IStudent>();
+  private initialState: Array<IStudent> = [{firstName: 'ali', lastName: 'ali', id: '379852'}, {
+    firstName: 'med',
+    lastName: 'ali',
+    id: '369952'
+  }, {firstName: 'salma', lastName: 'salma', id: '369552'}]
+  private _studentList: BehaviorSubject<Array<IStudent>> = new BehaviorSubject<Array<IStudent>>(this.initialState)
+  public studentList:Observable<Array<IStudent>> = this._studentList.asObservable();
 
   constructor() {
-    this.studentList.push({firstName: 'ali', lastName: 'ali', id: '379852'})
-    this.studentList.push({firstName: 'med', lastName: 'ali', id: '369952'})
-    this.studentList.push({firstName: 'salma', lastName: 'salma', id: '369552'})
+    console.log("service created");
+    console.log(this.studentList)
+
+
+
   }
 
   public addStudent(student: IStudent) {
-    this.studentList.push(student);
+    // this.studentList.push(student);
+  }
+
+  public removeStudent(student: IStudent) {
+    let tempStudents  = this._studentList.value.filter(x=>x.id != student.id)
+    this._studentList.next(tempStudents);
   }
 
   public setNewList(list: Array<IStudent>) {
-    this.studentList = list;
+    // this.studentList = list;
   }
 
-  public getStudentById(id:string){
-    return this.studentList.find(x=>x.id==id);
+  public getStudentById(id: string) {
+    // return this.studentList.find(x => x.id == id);
   }
 }
