@@ -12,7 +12,7 @@ export class StudentsService {
     id: '369952'
   }, {firstName: 'salma', lastName: 'salma', id: '369552'}]
   private _studentList: BehaviorSubject<Array<IStudent>> = new BehaviorSubject<Array<IStudent>>(this.initialState)
-  public studentList:Observable<Array<IStudent>> = this._studentList.asObservable();
+  public studentList: Observable<Array<IStudent>> = this._studentList.asObservable();
 
   constructor() {
 
@@ -22,11 +22,11 @@ export class StudentsService {
     // let tempArray = this._studentList.value;
     // tempArray.push(student);
 
-    this._studentList.next([student,...this._studentList.value])
+    this._studentList.next([student, ...this._studentList.value])
   }
 
   public removeStudent(student: IStudent) {
-    let tempStudents  = this._studentList.value.filter(x=>x.id != student.id)
+    let tempStudents = this._studentList.value.filter(x => x.id != student.id)
     this._studentList.next(tempStudents);
   }
 
@@ -34,7 +34,7 @@ export class StudentsService {
     // this.studentList = list;
   }
 
-  public getStudentById(id: string) {
-    // return this.studentList.find(x => x.id == id);
+  public getStudentById(id: string): IStudent | undefined {
+    return this._studentList.value.find(x => x.id == id)
   }
 }

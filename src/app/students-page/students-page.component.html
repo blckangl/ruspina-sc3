@@ -1,2 +1,6 @@
 <app-student-input ></app-student-input>
-<app-student-list  [students]="studentList"></app-student-list>
+<div class="search-container">
+  <input #searchInput placeholder="Search" />
+
+</div>
+<app-student-list  [students]="filtredList"></app-student-list>

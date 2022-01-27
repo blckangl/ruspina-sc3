@@ -18,7 +18,7 @@ export class DetailsPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      // this.student = this.studentService.getStudentById(params['id']);
+       this.student = this.studentService.getStudentById(params['id']);
       if(!this.student){
          this.router.navigate(['404'])
       }
