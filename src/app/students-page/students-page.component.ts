@@ -25,8 +25,9 @@ export class StudentsPageComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.studentsService.studentList.subscribe(state => {
-      this.studentList = state;
+    this.studentsService.studentList.subscribe(newlist => {
+      console.log("subject changed")
+      this.studentList = newlist;
     })
   }
 }
