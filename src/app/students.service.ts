@@ -15,15 +15,14 @@ export class StudentsService {
   public studentList:Observable<Array<IStudent>> = this._studentList.asObservable();
 
   constructor() {
-    console.log("service created");
-    console.log(this.studentList)
-
-
 
   }
 
   public addStudent(student: IStudent) {
-    // this.studentList.push(student);
+    // let tempArray = this._studentList.value;
+    // tempArray.push(student);
+
+    this._studentList.next([student,...this._studentList.value])
   }
 
   public removeStudent(student: IStudent) {

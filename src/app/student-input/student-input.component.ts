@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {IStudent} from "../shared/models/student.interface";
+import {StudentsService} from "../students.service";
 
 @Component({
   selector: 'app-student-input',
@@ -8,9 +9,8 @@ import {IStudent} from "../shared/models/student.interface";
 })
 export class StudentInputComponent implements OnInit {
 
-  @Output() onStudentAdd: EventEmitter<IStudent> = new EventEmitter<IStudent>()
 
-  constructor() {
+  constructor(private studentsService: StudentsService) {
   }
 
   ngOnInit(): void {
@@ -19,19 +19,22 @@ export class StudentInputComponent implements OnInit {
   addStudent(nameInput: HTMLInputElement, lastInput: HTMLInputElement, idInput: HTMLInputElement) {
 
     if (nameInput.value.length != 0 && lastInput.value.length != 0 && idInput.value.length == 6) {
-      this.onStudentAdd.emit({firstName: nameInput.value, lastName: lastInput.value, id: idInput.value});
+      const student: IStudent = {firstName: nameInput.value, lastName: lastInput.value, id: idInput.value};
+      this.studentsService.addStudent(student);
+
+      // this.onStudentAdd.emit({firstName: nameInput.value, lastName: lastInput.value, id: idInput.value});
       nameInput.value = '';
       lastInput.value = '';
       idInput.value = '';
-    }else{
+    } else {
 
     }
 
   }
 
   resetInputs(nameInput: HTMLInputElement, lastInput: HTMLInputElement, idInput: HTMLInputElement) {
-    nameInput.value='';
-    lastInput.value='';
-    idInput.value='';
+    nameInput.value = '';
+    lastInput.value = '';
+    idInput.value = '';
   }
 }

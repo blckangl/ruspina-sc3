@@ -18,11 +18,6 @@ export class StudentsPageComponent implements OnInit {
   }
 
 
-  addStudent(student: IStudent) {
-    this.studentsService.addStudent(student);
-    // this.studentList = this.studentsService.studentList;
-  }
-
 
   ngOnInit(): void {
     this.studentsService.studentList.subscribe(newlist => {
